@@ -21,7 +21,9 @@
           </q-card-actions>
 
           <q-card-section class="text-center q-pa-none">
-            <p class="text-grey-6">No tens un conter? Registrat</p>
+            <p class="text-grey-6">No tens un conter?
+              <a href="http://localhost:8080/#/register" class="text-blue"> Registrat</a>
+            </p>
           </q-card-section>
 
         </q-card>

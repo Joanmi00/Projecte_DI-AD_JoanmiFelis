@@ -13,12 +13,8 @@
         <q-card-section>
           <q-input
             v-model="Nombre"
-            square
-            filled
-            clearable
             placeholder="Nombre Apellido1 Apellido2"
             class="q-mb-sm"
-            color="positive"
             lazy-rules
             :rules="[required, short]"
             label="Nombre Completo"
@@ -27,7 +23,7 @@
               <q-icon name="face" />
             </template>
           </q-input>
-          <q-input v-model="DNI" square filled clearable placeholder="12345678A"
+          <q-input v-model="DNI" placeholder="12345678A"
             lazy-rules
             :rules="[required, isDNI, short]"
             label="DNI / NIE"
@@ -38,12 +34,8 @@
           </q-input>
           <q-input
             v-model="Usuario"
-            square
-            filled
-            clearable
             placeholder="Choumi00"
             class="q-mb-sm"
-            color="positive"
             lazy-rules
             :rules="[required, short]"
             label="Usuario"
@@ -54,12 +46,8 @@
           </q-input>
           <q-input
             v-model="Contraseña"
-            square
-            filled
-            clearable
             placeholder="Usa una segura!"
             class="q-mb-sm"
-            color="positive"
             :type="passwordFieldType"
             lazy-rules
             :rules="[required, short]"
@@ -77,9 +65,8 @@
             </template>
           </q-input>
           <q-btn unelevated color="blue" class="full-width" label="Registrar"/>
-          <div class="q-my-sm text-center">
-            Quieres iniciar sesión?
-            <a href="http://localhost:8080/#/login" class="text-blue">Login</a>
+          <div class="q-my-sm text-center text-grey-5">Ja tens un conter?
+            <a href="http://localhost:8080/#/login" class="text-blue">Inicia sessio</a>
           </div>
         </q-card-section>
       </q-card>
