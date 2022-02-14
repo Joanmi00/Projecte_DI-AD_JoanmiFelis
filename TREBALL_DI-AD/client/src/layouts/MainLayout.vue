@@ -2,17 +2,10 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer"/>
 
         <q-toolbar-title>
-          Qualificacions App
+          <q-btn href="http://localhost:8080/#/login" unelevated class="text-white">Qualificacions App</q-btn>
         </q-toolbar-title>
 
         <div>{{ fecha }}</div>
@@ -20,38 +13,25 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      elevated
-      :width="300"
-      :breakpoint="300"
-    >
-      <q-img
-        class="absolute-top"
-        src="/image/Banner.jpg"
-        style="height: 130px"
-      >
+    <q-drawer v-model="leftDrawerOpen" elevated :width="300" class="q-pa shadow">
+
+      <q-img class="absolute-top" src="/image/Banner.jpg" style="height: 130px">
         <div class="absolute-bottom bg-transparent">
+
           <q-avatar size="60px" class="q-mb-xs">
             <img :src="imagen" />
           </q-avatar>
+
           <div class="text-weight-bold">Joan Miquel Felis Toledo</div>
           <div>joanmifelis@gmail.com</div>
+
         </div>
       </q-img>
-      <q-list
-        style="
-          height: calc(100% - 150px);
-          margin-top: 150px;
-          border-right: 1px solid #ddd;
-        "
-      >
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+
+      <q-list style="margin-top: 150px;">
+        <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" style="margin-top: 10px;"/>
       </q-list>
+
     </q-drawer>
 
     <q-page-container>
@@ -66,6 +46,13 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
+    title: 'Login',
+    caption: 'Inicia sesió',
+    icon: 'account_circle',
+    link: 'http://localhost:8080/#/login'
+  },
+
+  {
     title: 'Moodle',
     caption: 'moodle.ieseljust',
     icon: 'school',
@@ -75,14 +62,9 @@ const linksList = [
     title: 'Github',
     caption: 'github.com/Joanmi00',
     icon: 'work',
-    link: 'https://github.com/Joanmi00'
+    link: 'https://github.com/Joanmi00/Projecte_DI-AD_JoanmiFelis.git'
   },
-  {
-    title: 'Login',
-    caption: 'Inicia sesió',
-    icon: 'person',
-    link: 'http://localhost:8080/#/login'
-  },
+
   {
     title: 'About',
     caption: 'Sobre mi',
@@ -108,9 +90,7 @@ export default defineComponent({
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
-      },
-      user: '',
-      password: ''
+      }
     }
   },
   data () {

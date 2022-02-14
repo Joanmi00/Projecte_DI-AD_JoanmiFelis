@@ -1,18 +1,13 @@
 <template>
-  <!--
-    7. Crea un formulari per a registrar-se.
-    La informació que s’ha de passar ha de ser:
-    nom complet, dni, username i password.
-  -->
   <q-page  class="bg-grey-10 row justify-center items-center">
-    <div class="full-width" style="max-width: 400px">
+    <div class="full-width" style="max-width: 350px">
       <div class="row">
         <h5 class="text-h5 text-blue q-my-md">Registre</h5>
       </div>
       <q-card square bordered class="q-pa-lg shadow-1">
         <q-card-section>
 
-          <q-input v-model="Nom" :rules="[buit, curt]" placeholder="Nombre y apellidos" label="Nombre Completo">
+          <q-input v-model="Nom" :rules="[buit, curt]" placeholder="Nombre y apellidos" label="Nom Complet">
             <template #prepend>
               <q-icon name="face"/>
             </template>
@@ -24,24 +19,24 @@
             </template>
           </q-input>
 
-          <q-input v-model="Usuari" :rules="[buit, curt]" placeholder="Choumi00" label="Usuario">
+          <q-input v-model="Usuari" :rules="[buit, curt]" placeholder="Choumi00" label="Usuari">
             <template #prepend>
               <q-icon name="account_box" />
             </template>
           </q-input>
 
-          <q-input v-model="Contrasenya" :rules="[buit, curt]" :type="passwordFieldType" placeholder="Usa una segura!" label="Contraseña">
+          <q-input v-model="Contrasenya" :rules="[buit, curt]" :type="oculta" placeholder="Usa una segura!" label="Contrasenya">
             <template #prepend>
               <q-icon name="pattern" />
             </template>
             <template #append>
-              <q-icon :name="visibilityIcon" class="cursor-pointer" @click="switchVisibility"/>
+              <q-icon :name="icono" class="cursor-pointer" @click="ver"/>
             </template>
           </q-input>
 
-          <q-btn unelevated color="blue" class="full-width" label="Registrar"/>
-          <div class="q-my-sm text-center text-grey-5">Ja tens un conter?
-            <a href="http://localhost:8080/#/login" class="text-blue">Inicia sessio</a>
+          <q-btn color="blue" class="full-width" label="Registrat"/>
+          <div class="q-my-sm text-center text-grey-6">Ja tens un conter?
+            <a href="http://localhost:8080/#/login" class="text-blue">Inicia sessió</a>
           </div>
 
         </q-card-section>
@@ -69,10 +64,7 @@ export default {
           progress: true
         })
       },
-      /*
-        8. De moment els formularis no senviaran al servidor,
-        però si que heu de preparar la seua validació en la part del client.
-      */
+
       buit (val) {
         return (val && val.length > 0) || 'No pot estar buit'
       },
@@ -93,9 +85,9 @@ export default {
       DNI: '',
       Usuari: '',
       Contrasenya: '',
-      passwordFieldType: 'password',
-      visibility: false,
-      visibilityIcon: 'visibility'
+      oculta: 'password',
+      punts: false,
+      icono: 'visibility'
     }
   },
 
@@ -104,10 +96,10 @@ export default {
     però si que heu de preparar la seua validació en la part del client.
   */
   methods: {
-    switchVisibility () {
-      this.visibility = !this.visibility
-      this.passwordFieldType = this.visibility ? 'text' : 'password'
-      this.visibilityIcon = this.visibility ? 'visibility_off' : 'visibility'
+    ver () {
+      this.punts = !this.punts
+      this.oculta = this.punts ? 'text' : 'password'
+      this.icono = this.punts ? 'visibility_off' : 'visibility'
     }
   }
 }
