@@ -19,7 +19,7 @@
         <div class="absolute-bottom bg-transparent">
 
           <q-avatar size="60px" class="q-mb-xs">
-            <img :src="imagen" />
+            <img :src="imagen"/>
           </q-avatar>
 
           <div class="text-weight-bold">Joan Miquel Felis Toledo</div>

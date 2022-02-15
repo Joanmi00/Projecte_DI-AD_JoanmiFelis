@@ -46,24 +46,12 @@
 </template>
 
 <script>
-import { useQuasar, QSpinnerGears } from 'quasar'
 
 export default {
   name: 'Register',
 
   setup () {
-    const $q = useQuasar()
-
     return {
-      register () {
-        $q.notify({
-          spinner: QSpinnerGears,
-          message: 'Registrando...',
-          color: 'positive',
-          timeout: 2000,
-          progress: true
-        })
-      },
 
       buit (val) {
         return (val && val.length > 0) || 'No pot estar buit'
