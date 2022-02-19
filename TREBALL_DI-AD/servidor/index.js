@@ -21,6 +21,16 @@ const users = [{
 }
 ];
 
+const registrar = [
+    {
+        dni: "",
+        username: "",
+        password: "",
+        full_name: "",
+        avatar: ""
+    }
+]
+
 
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
@@ -29,6 +39,24 @@ app.use(bodyParser.json());
 
 const accessTokenSecret = 'laParaulaSecretaDelServidor';
 const refreshTokenSecret = 'laParaulaSecretaDeRenovacioDelServidor';
+
+
+app.post('/register', (req, res) => {
+    const { username, password } = req.body;
+
+    const comprovar = users.find(u => {
+        return u.username === username && u.password === password
+    });
+
+    if (comprovar) {
+        res.send("El usuari ja esta registrat. Inicia Sessio.")
+
+    } else {
+        
+    }
+})
+
+
 
 // colecció de tokens per a regenerar
 const refreshTokens = [];
@@ -67,6 +95,7 @@ app.post('/login', (req, res) => {
 
 const authenticateJWT = (req, res, next) => {
     // arrepleguem el JWT d'autorització
+    const authHeader = req.headers.authorization;
 
     if (authHeader) { // si hi ha toquen recuperem el jwt
         const token = authHeader.split(' ')[1];
@@ -124,7 +153,7 @@ app.post('/token', (req, res) => {
             { username: user.username, role: user.role },
             accessTokenSecret,
             { expiresIn: '20m' });
-            
+
         // li retornenm al client
         res.json({
             accessToken

@@ -15,7 +15,7 @@
 
     <q-drawer v-model="leftDrawerOpen" elevated :width="300" class="q-pa shadow">
 
-      <q-img class="absolute-top" src="/image/Banner.jpg" style="height: 130px">
+      <q-img class="absolute-top" src="/image/Banner.jpg" style="height: 150px">
         <div class="absolute-bottom bg-transparent">
 
           <q-avatar size="60px" class="q-mb-xs">
@@ -28,7 +28,7 @@
         </div>
       </q-img>
 
-      <q-list style="margin-top: 150px;">
+      <q-list style="margin-top: 170px;">
         <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" style="margin-top: 10px;"/>
       </q-list>
 

@@ -12,13 +12,13 @@
             <q-form class="q-gutter-md">
               <q-input v-model="Usuari" :rules="[buit]" class="bg-white" label="Usuari">
                 <template #prepend>
-                  <q-icon name="face"/>
+                  <q-icon class="text-black" name="face"/>
                 </template>
               </q-input>
 
               <q-input v-model="Contrasenya" :rules="[buit]" class="bg-white" :type="oculta" label="Contrasenya">
                 <template #prepend>
-                  <q-icon name="pattern" />
+                  <q-icon class="text-black" name="pattern" />
                 </template>
 
                 <template #append>

@@ -11,28 +11,28 @@
 
           <q-input v-model="Nom" :rules="[buit, curt]" placeholder="Nombre y apellidos" label="Nom Complet">
             <template #prepend>
-              <q-icon name="face"/>
+              <q-icon class="text-black" name="face"/>
             </template>
           </q-input>
 
           <q-input v-model="DNI" :rules="[buit, esDNI]" placeholder="12345678A" label="DNI">
             <template #prepend>
-              <q-icon name="pin" />
+              <q-icon class="text-black" name="pin" />
             </template>
           </q-input>
 
           <q-input v-model="Usuari" :rules="[buit, curt]" placeholder="Choumi00" label="Usuari">
             <template #prepend>
-              <q-icon name="account_box" />
+              <q-icon class="text-black" name="account_box" />
             </template>
           </q-input>
 
-          <q-input v-model="Contrasenya" :rules="[buit, curt]" :type="oculta" placeholder="Usa una segura!" label="Contrasenya">
+          <q-input v-model="Contrasenya" :rules="[buit, curt]" :type="oculta" placeholder="Minim 3 caracters" label="Contrasenya">
             <template #prepend>
-              <q-icon name="pattern" />
+              <q-icon class="text-black" name="pattern" />
             </template>
             <template #append>
-              <q-icon :name="icono" class="cursor-pointer" @click="ver"/>
+              <q-icon :name="icono" class="text-black cursor-pointer" @click="ver"/>
             </template>
           </q-input>
 
@@ -59,7 +59,7 @@ export default {
         return (val && val.length > 0) || 'No pot estar buit'
       },
       curt (val) {
-        return (val && val.length > 5) || 'No pot ser tan curt'
+        return (val && val.length > 3) || 'No pot ser tan curt'
       },
       esDNI (val) {
         const nifRegex = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i
